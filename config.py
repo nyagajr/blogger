@@ -22,3 +22,42 @@ class Config:
     SIMPLEMDE_JS_IIFE = True
     SIMPLEMDE_USE_CDN = True
 
+
+class ProdConfig(Config):
+    """
+    Production  configuration child class
+    Args:
+        Config: The parent configuration class with General configuration settings
+    """
+
+    # SQLALCHEMY_DATABASE_URI = os.environ.get("HEROKU_POSTGRESQL_CYAN_URL")
+    pass
+
+
+class DevConfig(Config):
+    """
+    Development  configuration child class
+    Args:
+        Config: The parent configuration class with General configuration settings
+    """
+
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://muchoki:123@localhost/blogge'
+    DEBUG = True
+
+
+class TestConfig(Config):
+    """
+    Development  configuration child class
+    Args:
+        Config: The parent configuration class with General configuration settings
+    """
+
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://muchoki:123@localhost/pitch'
+    DEBUG = True
+
+
+config_options = {
+    'development': DevConfig,
+    'production': ProdConfig,
+    'test': TestConfig
+}
