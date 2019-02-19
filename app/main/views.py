@@ -16,6 +16,7 @@ def index():
     title = 'blooger.com'
 
     return render_template("index.html", title=title)
+
 @main.route('/Interview',methods = ['GET', 'POST'])
 @login_required
 def Interview():

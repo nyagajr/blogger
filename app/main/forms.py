@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField, SelectField
 from wtforms.validators import Required
+
 class ReviewForm(FlaskForm):
 
     title = StringField('Review title',validators=[Required()])
@@ -19,3 +20,4 @@ class PitchFormL(FlaskForm):
 class PitchFormP(FlaskForm):
     pitch = TextAreaField('Pitch Comment', validators=[Required()])
     my_category = SelectField('Category', choices=[('Promotion','Promotion')])
+    submit = SubmitField('Submit')
